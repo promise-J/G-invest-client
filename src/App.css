@@ -1,38 +1,1249 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  height: 60px;
+  border-bottom: rgb(168, 168, 247) 1px solid;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  /* align-items: center; */
+  background-color: rgb(0, 10, 35);
+  padding: 0 100px;
+  position: fixed;
+}
+
+.header-offset {
+  height: 60px;
+  width: 100vw;
+}
+
+header ul {
+  /* background-color: red; */
+  /* width: 60%;
+  height: 100%;
+  list-style: none;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  margin-left: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white; */
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  width: 100vw;
+  flex-direction: column;
+  background-color: rgb(1, 1, 59);
+  /* width: 60%; */
+  height: 100%;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 35px;
+  margin-left: 0px;
+  padding-top: 30px;
+  padding-left: 20px;
+  color: white;
+  list-style: none;
+}
+header ul .close {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header ul li:hover {
+  color: rgb(152, 152, 238);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu-bar {
+  height: 100vh;
+  position: absolute;
+  width: 50vw;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgb(0, 10, 35);
+  transition: 0.5s all ease-in-out;
+  /* transform: translateX(-683px); */
+  /* transform: translateX(0px); */
+}
+
+.home {
+  padding: 30px 0;
+}
+
+.home .welcome {
+  height: 100vh;
+  background: linear-gradient(
+      to right,
+      rgba(8, 9, 88, 0.2),
+      rgba(1, 10, 49, 0.4)
+    ),
+    url("./images/bg01.jpg");
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home .welcome h1,
+.home .welcome h2,
+.home .welcome p {
+  color: white;
+  margin: 10px 0;
+}
+.home .welcome h1 {
+  font-size: 59px;
+}
+.home .welcome h2 {
+  font-size: 40px;
+}
+
+.home .welcome p {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.home .welcome button {
+  background-color: rgb(0, 10, 35);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 40px;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 20px 0;
+}
+
+.home .plan {
+  min-height: 100vh;
+  /* background-color: red; */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.home .plan .card {
+  height: 100%;
+  width: 230px;
+  /* background-color: blue; */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  box-shadow: 2px 2px 5px 2px rgb(153, 151, 151);
+}
+
+.home .plan .card:nth-child(even) {
+  background-color: rgb(0, 10, 35);
+  color: white;
+}
+.home .plan .card:nth-child(even) h2 {
+  color: white;
+}
+.home .plan .card:nth-child(even) h1 {
+  color: orangered;
+}
+
+.login {
+  height: calc(100vh - 60px);
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .container {
+  /* border: rgb(210, 210, 243) 1px solid; */
+  width: 60%;
+  padding: 40px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.login .container h4 {
+  margin-bottom: 20px;
+}
+
+.login .container label.input-label {
+  display: block;
+}
+
+.login .container input[type="text"],
+.login .container select {
+  width: 100%;
+  margin: 15px;
+  padding: 7px 10px;
+  background-color: rgb(216, 229, 235);
+  border: rgb(243, 171, 243) 1px solid;
+  border-radius: 5px;
+}
+
+.login .container .rem-label {
+  margin-left: 10px;
+  /* display: inline; */
+}
+
+.login .container .login-btn {
+  color: white;
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(7, 7, 68);
+}
+.login .container .login-btn:hover {
+  background-color: rgb(62, 44, 90);
+}
+.login .container .login-btn:disabled {
+  background-color: rgba(1, 10, 49, 0.4);
+  cursor: not-allowed;
+}
+
+.login .container .agree-terms {
+  border-radius: 20px;
+  border: 1px solid green;
+}
+.login .container .container-dual {
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+}
+.login .container .container-dual div {
+  /* background-color: blue; */
+  margin: 15px 5px;
+  /* display: inline; */
+  width: 50%;
+}
+
+.verifyCode {
+  /* background-color: red; */
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.verifyCode input {
+  width: 300px;
+  padding: 6px 10px;
+  margin-bottom: 20px;
+}
+
+.verifyCode button {
+  /* margin-top: 20px; */
+  padding: 4px 15px;
+  cursor: pointer;
+  background-color: rgb(7, 7, 68);
+  color: white;
+  border-radius: 4px;
+}
+
+.dashboard {
+  min-height: calc(100vh - 60px);
+  /* background-color: red; */
+  width: 100vw;
+  display: flex;
+}
+
+.dashboard .dashboard-menu {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  /* display: none; */
+  /* color: red; */
+}
+
+.dashboard .sidebar {
+  flex: 1.1;
+  /* width: 20%; */
+  color: white;
+  /* background-color: rgb(0, 10, 35); */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard .sidebar .wrapper {
+  background-color: white;
+  position: relative;
+  height: 95%;
+  width: 90%;
+  overflow-y: scroll;
+  color: black;
+  box-shadow: 2px 2px 5px 4px rgb(235, 232, 232),
+    -2px -2px 2px 2px rgb(231, 230, 230);
+}
+
+.dashboard .sidebar .wrapper .sidebar-close {
+  display: none;
+}
+
+.dashboard .sidebar .wrapper .sidebar-heading {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-bottom: 1px solid rgb(218, 218, 219);
+}
+
+.dashboard .sidebar .wrapper h6 {
+  /* text-align: center; */
+  margin: 15px 30px;
+  opacity: 0.45;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dashboard .sidebar .wrapper ul {
+  /* background-color: red; */
+  width: 100%;
+  padding: 10px 0;
+  list-style: none;
+  /* height: 100%; */
+}
+
+.dashboard .sidebar .wrapper ul li {
+  padding: 10px 15px;
+  /* display: flex; */
+  cursor: pointer;
+  opacity: 0.8;
+  /* color: red; */
+  /* font-weight: lighter; */
+}
+.dashboard .sidebar .wrapper ul li:not(.active):hover {
+  background-color: rgb(228, 228, 250);
+}
+.dashboard .sidebar .wrapper ul li.active {
+  color: rgb(0, 10, 35);
+  font-weight: 600;
+  opacity: 1;
+  border-left: 3px solid rgb(0, 10, 35);
+}
+
+.dashboard main {
+  flex: 4;
+  /* width: 80%; */
+  /* background: blue; */
+  /* padding: 20px; */
+}
+
+.dashboard main .wrapper {
+  height: 100%;
+  background-color: rgb(230, 227, 227);
+  overflow-y: scroll;
+  position: fixed;
+  width: 100%;
+  /* width: calc(100% - 22%); */
+  width: 100%;
+  padding: 20px;
+  /* padding: 0 30px 0 0; */
+}
+
+.dashboard main .wrapper .dashboard-header {
+  /* background-color: purple; */
+  height: 100px;
+  /* margin: 30px; */
+  width: 76%;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 10, 35);
+  margin-top: 30px;
+}
+.dashboard main .wrapper .dashboard-header span {
+  color: green;
+  margin-left: 10px;
+}
+.dashboard main .wrapper .dashboard-accounts {
+  /* background-color: red; */
+  height: fit-content;
+  width: 76%;
+  padding: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 20px;
+}
+.dashboard main .wrapper .dashboard-accounts .dashboard-account {
+  height: 110px;
+  /* width: 240px; */
+  /* flex: 1; */
+  width: 22%;
+  /* background-color: blue; */
+  /* padding: 5px; */
+}
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account
+  .dashboard-account-wrapper {
+  background-color: rgb(253, 252, 252);
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 6px;
+}
+
+.dashboard main .wrapper .dashboard-accounts .dashboard-account .dsh-acc1 {
+  flex: 1.4;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  font-weight: 500;
+  color: white;
+}
+.dashboard main .wrapper .dashboard-accounts .dashboard-account .dsh-acc2 {
+  /* border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px; */
+  flex: 2;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(1)
+  .dashboard-account-wrapper
+  .dsh-acc1,
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(8)
+  .dashboard-account-wrapper
+  .dsh-acc1 {
+  background-color: rgb(38, 40, 46);
+}
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(2)
+  .dashboard-account-wrapper
+  .dsh-acc1,
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(7)
+  .dashboard-account-wrapper
+  .dsh-acc1 {
+  background-color: tomato;
+}
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(3)
+  .dashboard-account-wrapper
+  .dsh-acc1,
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(6)
+  .dashboard-account-wrapper
+  .dsh-acc1 {
+  background-color: rgb(235, 203, 22);
+}
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(4)
+  .dashboard-account-wrapper
+  .dsh-acc1,
+.dashboard
+  main
+  .wrapper
+  .dashboard-accounts
+  .dashboard-account:nth-child(5)
+  .dashboard-account-wrapper
+  .dsh-acc1 {
+  background-color: rgba(172, 255, 47, 0.788);
+}
+.dashboard main .wrapper .dashboard-accounts .dashboard-account .dsh-acc2 p {
+  opacity: 0.8;
+}
+.dashboard main .wrapper .dashboard-accounts .dashboard-account .dsh-acc2 h5 {
+  font-size: 27px;
+}
+
+.dashboard .wrapper .summary1 {
+  /* background: red; */
+  height: 58vh;
+  width: 76%;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+.dashboard .wrapper .summary1 .referral {
+  /* background-color: white; */
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  gap: 35px;
+}
+.dashboard .wrapper .summary1 .referral .first-content {
+  background: white;
+  flex: 3;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.dashboard .wrapper .summary1 .referral .first-content .first-content-details {
+  /* background-color: red; */
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* align-items: center; */
+  justify-content: space-around;
+  /* height: 100%; */
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .first-content
+  .first-content-details
+  p {
+  color: rgb(0, 10, 35);
+  font-weight: 600;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .first-content
+  .first-content-details
+  input {
+  padding: 15px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 14px 0;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .first-content
+  .first-content-details
+  button {
+  width: fit-content;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: gray;
+  transition: 0.2s all ease-in-out;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-around; */
+  /* margin-top: 15px; */
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .first-content
+  .first-content-details
+  button:hover {
+  background-color: rgb(46, 11, 46);
+}
+.dashboard .wrapper .summary1 .referral .second-content {
+  background-color: white;
+  flex: 1;
+  border-radius: 6px;
+  padding: 10px;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .second-content
+  .second-content-details {
+  /* background: green; */
+  height: 100%;
+  display: flex;
+  gap: 5px;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .second-content
+  .second-content-details
+  .first-content {
+  flex: 1;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .second-content
+  .second-content-details
+  .second-content {
+  flex: 4;
+  /* background-color: green; */
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .second-content
+  .second-content-details
+  .second-content
+  h5 {
+  color: rgb(0, 10, 35);
+  font-weight: 600;
+  font-size: 20px;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .referral
+  .second-content
+  .second-content-details
+  .second-content
+  p {
+  opacity: 0.8;
+}
+
+.dashboard .wrapper .summary1 .referral .first-content .heading {
+  /* height: 60px; */
+  border-bottom: 1px solid rgb(226, 226, 226);
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.dashboard .wrapper .summary1 .referral .first-content .heading h6 {
+  /* color: white; */
+  color: rgb(0, 10, 35);
+  font-weight: normal;
+  font-size: 21px;
+  margin-left: 20px;
+}
+
+.dashboard .wrapper .summary1 .account-summary {
+  flex: 1.3;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard .wrapper .summary1 .account-summary .heading {
+  height: 60px;
+  border-bottom: 1px solid rgb(236, 234, 234);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+}
+.dashboard .wrapper .summary1 .account-summary .account-summary-details {
+  /* background-color: green; */
+  flex: 3.4;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .account-summary
+  .account-summary-details
+  .content {
+  /* background: red; */
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  color: blue;
+}
+.dashboard
+  .wrapper
+  .summary1
+  .account-summary
+  .account-summary-details
+  .content:nth-child(1) {
+  color: rgb(0, 10, 35);
+  font-weight: 600;
+}
+
+.modal {
+  background: white;
+  height: 450px;
+  width: 600px;
+  margin-top: -180px;
+  border-radius: 8px;
+  padding: 30px;
+  color: rgb(4, 4, 102);
+  position: relative;
+}
+
+.modal .modal-title {
+  color: rgb(7, 7, 68);
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.modal p {
+  font-size: 17px;
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+.modal .modal-p1 span {
+  /* color: red; */
+  font-weight: 600;
+}
+
+.modal .modal-p2 span {
+  color: red;
+  font-weight: 600;
+}
+
+.modal .btn {
+  /* background-color: green; */
+  color: white;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  border: none;
+  padding: 15px;
+}
+.modal .btn button {
+  background-color: goldenrod;
+  color: white;
+  /* position: absolute; */
+  /* bottom: 30px;
+  right: 50px; */
+  margin: 0 7px;
+  border: none;
+  padding: 9px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.modal .btn .link button {
+  background-color: rebeccapurple;
+}
+
+.not-found {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.account-settings {
+  background: white;
+  width: 78%;
+  min-height: 60vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account-settings h4 {
+  text-align: center;
+  font-size: 22px;
+  margin: 6px 0;
+}
+
+.account-settings .account-setting {
+  /* background-color: blue; */
+  width: 90%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.account-settings .account-setting.btn {
+  /* background-color: red; */
+  justify-content: end;
+}
+.account-settings .account-setting input {
+  width: 70%;
+  margin-left: 20px;
+  padding: 6px 10px;
+  outline: none;
+  border-radius: 3px;
+}
+.account-settings .account-setting.btn button {
+  padding: 10px 16px;
+  background-color: rgb(240, 183, 38);
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.deposit {
+  /* background: red; */
+  min-height: 65vh;
+  width: 78%;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.deposit .deposit-left {
+  background-color: white;
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+}
+
+.deposit .deposit-left .deposit-left-heading {
+  border-bottom: 1px solid rgb(230, 227, 227);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: rgb(7, 7, 68);
+}
+
+.deposit .deposit-left .deposit-left-content {
+  /* background-color: purple; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.deposit .deposit-left .deposit-left-content .input-fund {
+  /* background: blue; */
+  padding: 5px;
+  /* width: 40%; */
+  height: 50px;
+  display: flex;
+}
+.deposit .deposit-left .deposit-left-content .input-fund input {
+  /* flex: 1; */
+  /* background-color: black; */
+  height: 100%;
+  width: 80%;
+}
+.deposit .deposit-left .deposit-left-content .input-fund .dollar-emb {
+  background: rgb(184, 183, 183);
+  /* flex: 5; */
+  height: 100%;
+  width: 25%;
+  /* padding: 8px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deposit .deposit-left .deposit-left-content select {
+  width: 98%;
+  padding: 10px;
+  margin: 15px 0;
+  outline: none;
+  /* border: none; */
+  border-radius: 5px;
+}
+.deposit .deposit-left .deposit-left-content select:focus {
+  background-color: gray;
+}
+
+.deposit .deposit-left .deposit-left-content p {
+  margin: 10px 0;
+}
+.deposit .deposit-left .deposit-left-content button {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: rgb(83, 83, 83);
+  color: white;
+  width: 50%;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.deposit .deposit-right {
+  background-color: white;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 3px;
+}
+.deposit .deposit-right .deposit-right-heading {
+  border-bottom: 1px rgb(216, 214, 214) solid;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding-left: 30px;
+  font-weight: 600;
+  color: rgb(7, 7, 68);
+}
+
+.deposit .deposit-right .deposit-right-table,
+.investments .deposit-right-table {
+  /* background-color: blue; */
+  min-width: 100%;
+  /* width: 90vw; */
+  padding: 15px 8px;
+  overflow-x: scroll;
+  /* height */
+}
+.deposit .deposit-right .deposit-right-table-row,
+.investments .deposit-right-table-row {
+  height: 60px;
+  /* background-color: purple; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid rgb(201, 198, 198);
+}
+.deposit .deposit-right .deposit-right-table-row:nth-child(even),
+.investments .deposit-right-table-row:nth-child(even) {
+  background: rgb(206, 205, 205);
+}
+.deposit .deposit-right .deposit-right-table-row button {
+  background-color: yellow;
+  outline: none;
+  border: none;
+  padding: 4px 8px;
+  /* color: white; */
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.deposit .deposit-right .deposit-right-table-row th,
+.investments .deposit-right-table-row th {
+  flex: 1;
+  text-align: center;
+}
+.deposit .deposit-right .deposit-right-table-row td,
+.investments .deposit-right-table-row td {
+  flex: 1;
+  text-align: center;
+}
+.deposit .deposit-right .deposit-right-table-row th,
+.investments .deposit-right-table-row th.span2 {
+  flex: 1.9;
+  text-align: center;
+}
+.deposit .deposit-right .deposit-right-table-row td,
+.investments .deposit-right-table-row td.span2 {
+  flex: 1.9;
+  text-align: center;
+}
+
+.invest-plans {
+  /* background-color: white; */
+  width: 76%;
+  min-height: 84vh;
+  display: flex;
+  padding: 20px;
+  gap: 40px;
+}
+
+.invest-plans .invest-plan {
+  background-color: white;
+  height: 100%;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.invest-plans .invest-plan .type {
+  position: absolute;
+  top: 0;
+  left: 28%;
+  background-color: rgba(4, 13, 51, 0.945);
+  color: white;
+  height: 35px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invest-plans .invest-plan .min-amount {
+  font-weight: 600;
+  margin-top: 66px;
+  font-size: 59px;
+}
+.invest-plans .invest-plan .min-text {
+  /* color: red; */
+  margin: 10px 0;
+}
+
+.invest-plans .invest-plan .details {
+  /* background-color: blue; */
+  width: 100%;
+  /* height: 50px; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgb(9, 9, 68);
+}
+.invest-plans .invest-plan .details .detail .detail-icon {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin-right: 20px;
+}
+.invest-plans .invest-plan .details .detail .detail-icon.red {
+  background-color: red;
+}
+
+.invest-plans .invest-plan .details .detail {
+  /* background: green; */
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.invest-plans .invest-plan .invest-action {
+  /* background-color: green; */
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.invest-plans .invest-plan .invest-action input {
+  width: 90%;
+  margin-top: 20px;
+  padding: 8px 16px;
+}
+.invest-plans .invest-plan .invest-action button {
+  background-color: rgb(83, 83, 83);
+  padding: 10px 18px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.investments {
+  background-color: white;
+  width: 78%;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.investments .investment-heading {
+  border-bottom: 1px solid rgb(240, 235, 235);
+  /* background: white; */
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(1, 1, 59);
+}
+
+.investments p {
+  background: gray;
+  width: fit-content;
+  padding: 12px 16px;
+  margin-left: 20px;
+  color: white;
+  border-radius: 6px;
+}
+
+/************Media Query************ */
+@media screen and (max-width: 1000px) {
+  .dashboard main .wrapper .dashboard-accounts .dashboard-account {
+    width: 30%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 900px) {
+  .dashboard .sidebar {
+    position: absolute;
+    top: -14px;
+    left: -35px;
+    z-index: 45;
+    /* height: 100vh; */
+    /* width: 90%; */
+    /* background: red; */
+    /* display: none; */
+  }
+  .dashboard .sidebar .wrapper{
+    /* background-color: red; */
+    /* height: 100%; */
+    padding-left: 30px;
+  }
+  .dashboard .sidebar .wrapper ul li.active {
+    opacity: 1;
+    border: none;
+  }
+
+  .dashboard .sidebar .wrapper .sidebar-close {
+    display: block;
+  }
+  .dashboard .dashboard-menu {
+    display: block;
+    /* z-index: 55; */
+  }
+  .dashboard main .wrapper {
+    /* background-color: red; */
+    padding: 10px;
+  }
+  .dashboard .wrapper .summary1 {
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashboard main .wrapper .dashboard-accounts {
+    /* background-color: blue; */
+    width: 100%;
+  }
+  .dashboard main .wrapper .dashboard-header {
+    /* background: green; */
+    width: 100%;
+  }
+  .deposit {
+    flex-direction: column;
+  }
+  .deposit .deposit-right {
+    flex: 1;
+    width: 90vw;
+    /* background-color: green; */
+  }
+  .deposit .deposit-left {
+    flex: 1;
+    width: 90vw;
+    /* background-color: purple; */
+  }
+  .investments {
+    /* background-color: red; */
+    width: 100%;
+  }
+  .deposit .deposit-right .deposit-right-table-row th,
+  .investments .deposit-right-table-row th {
+    font-size: 12px;
+  }
+.account-settings {
+  /* background-color: green; */
+  width: 100%;
+}
+}
+
+@media screen and (max-width: 770px) {
+  .dashboard main .wrapper .dashboard-accounts .dashboard-account {
+    width: 45%;
+  }
+  .home .plan {
+    /* background-color: red; */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .home .plan .card {
+    flex: 1;
+    width: 80%;
+  }
+  .login .container {
+    padding: 10px;
+    width: 80%;
+    overflow-x: hidden;
+  }
+  .login .container input[type="text"],
+  .login .container select {
+    margin: 20px 0;
+  }
+  header {
+    position: relative;
+    /* background-color: blue; */
+  }
+  header ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    position: fixed;
+    width: 100vw;
+    flex-direction: column;
+    background-color: rgb(1, 1, 59);
+    /* width: 60%; */
+    height: 100%;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 35px;
+    margin-left: 0px;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+  /* header .open{
+    display: block;
+  } */
+  header ul .close {
+    right: 20px;
+    position: absolute;
+    display: block;
+    top: 30px;
+  }
+  .modal {
+    /* background-color: red; */
+    width: 90%;
+  }
+  .dashboard main .wrapper .dashboard-header {
+    font-size: 29px;
+  }
+  .invest-plans {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    /* background-color: red; */
+    width: 100%;
+  }
+  .invest-plans .invest-plan {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard main .wrapper .dashboard-accounts .dashboard-account {
+    width: 97%;
   }
 }
