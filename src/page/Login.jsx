@@ -10,8 +10,6 @@ const initialState = {
 }
 
 
-// const loginURL = "https://g-invest.onrender.com/api/auth/login"
-const loginURL = "http://localhost:5000/api/auth/login"
 const Login = () => {
   const navigate = useNavigate()
   const [data, setData] = useState(initialState)
@@ -32,7 +30,7 @@ const Login = () => {
     e.preventDefault()
     try {
       setLoading(true)
-      const {data: res} = await axios.post(loginURL, data)
+      const {data: res} = await axios.post(process.env.REACT_APP_BACKEND_URL, data)
       dispatch(setUser(res.user))
       setLoading(false)
       localStorage.setItem('IToken', res.accessToken)
