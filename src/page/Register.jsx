@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
 
 const initialState = {
   fullName: "",
@@ -53,6 +54,9 @@ const Register = () => {
       await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, data);
       navigate("/verifyCode", {state: {email}});
     } catch (error) {
+      if(error?.response?.status===400){
+        toast.error(error?.response?.data)
+      }
       console.log(error, "from register");
     }
   };
