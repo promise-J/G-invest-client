@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault()
     try {
       setLoading(true)
-      const {data: res} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}`, data)
+      const {data: res} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, data)
       dispatch(setUser(res.user))
       setLoading(false)
       localStorage.setItem('IToken', res.accessToken)

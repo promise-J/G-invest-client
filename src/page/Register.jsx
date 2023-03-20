@@ -16,7 +16,6 @@ const initialState = {
   agreed: false,
 };
 
-const registerURL = "http://localhost:5000/api/auth/register";
 
 const Register = () => {
   const [data, setData] = useState(initialState);
@@ -51,7 +50,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await axios.post(registerURL, data);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, data);
       navigate("/verifyCode", {state: {email}});
     } catch (error) {
       console.log(error, "from register");
