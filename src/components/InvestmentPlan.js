@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { GrCheckbox } from "react-icons/gr";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import axiosRequest from "../axiosConfig";
 
 const InvestmentPlan = ({ el, setMessage, setIsOpen }) => {
   const { user } = useSelector((state) => state.user);
@@ -33,7 +33,7 @@ const InvestmentPlan = ({ el, setMessage, setIsOpen }) => {
         setIsOpen(true);
         setAmount("");
       }
-      await axios.post('/invest', {amount: +amount, planId: el.id})
+      await axiosRequest.post('/invest', {amount: +amount, planId: el.id})
       setMessage(
       `Congrats, your ${el.name} Investment was made successful.`
       );

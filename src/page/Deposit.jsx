@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { useDispatch } from "react-redux";
@@ -35,7 +34,7 @@ const Deposit = () => {
 
   const deleteDeposit = async (id, txnAmount) => {
     try {
-      const {data} = await axios.delete(`/deposit/${id}`)
+      const {data} = await axiosRequest.delete(`/deposit/${id}`)
       setDeposits(el=> el.filter(d=> d._id !== id))
       dispatch(decreaseCoinAmount({type: 'deposit', amount: txnAmount}))
       toast.success(data)
@@ -53,7 +52,7 @@ const Deposit = () => {
   const handleDeposit = async () => {
     if (!amount || !paymentType) return toast.error("Please complete fields");
     try {
-      const { data } = await axios.post("/deposit", {
+      const { data } = await axiosRequest.post("/deposit", {
         amount: +amount,
         paymentType,
       });

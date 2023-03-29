@@ -25,7 +25,7 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
   });
 
   useEffect(()=>{
-    if(!user){
+    if(!user && !localStorage.getItem('IToken')){
       console.log('there is no user')
       navigate('/login')
     }

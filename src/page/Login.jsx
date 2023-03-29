@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { setUser } from '../redux/userSlice'
+import { setToken, setUser } from '../redux/userSlice'
 const initialState = {
   email: "",
   password: ""
@@ -32,10 +32,12 @@ const Login = () => {
       setLoading(true)
       const {data: res} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, data)
       dispatch(setUser(res.user))
+      dispatch(setToken(res.accessToken))
       setLoading(false)
       localStorage.setItem('IToken', res.accessToken)
       navigate('/dashboard')
     } catch (error) {
+      console.log(error, 'from the login error')
       setLoading(false)
       toast.error(error?.response.data)
     }
