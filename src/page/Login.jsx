@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-import useAuth from '../hooks/useAuth'
+// import useAuth from '../hooks/useAuth'
 import { setToken, setUser } from '../redux/userSlice'
 const initialState = {
   email: "",
@@ -15,7 +15,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const {email, password} = data
   const dispatch = useDispatch()
-  const authMan = useAuth()
+  // const authMan = useAuth()
 
   const handleChange = (e)=>{
     const {value, name} = e.target
