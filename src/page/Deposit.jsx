@@ -52,11 +52,12 @@ const Deposit = () => {
   const handleDeposit = async () => {
     if (!amount || !paymentType) return toast.error("Please complete fields");
     try {
-      const { data } = await axiosRequest.post("/deposit", {
+      const res = await axiosRequest.post("/deposit", {
         amount: +amount,
         paymentType,
       });
-      setPaymentTypeAddress(data.paymentTypeAddress);
+      console.log(res, 'from deposit')
+      setPaymentTypeAddress(res.data.paymentTypeAddress);
       setIsOpen(true);
       dispatch(increaseCoinAmount({ type: "deposit", amount }));
     } catch (error) {

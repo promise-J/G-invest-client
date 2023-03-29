@@ -10,38 +10,40 @@ const InvestmentPlan = ({ el, setMessage, setIsOpen }) => {
   const [amount, setAmount] = useState("");
 
   const handleInvest = async () => {
+    if (!amount) return toast.error("Amount is not provided");
+    if (amount > el.max) {
+      setMessage(
+        `Oppps! Looks like your amount $${amount} is too much. Please check the range of the plan`
+      );
+      setIsOpen(true);
+      setAmount("");
+      return
+    }
+    if (amount < el.min) {
+      setMessage(
+        `Oppps! Looks like your amount $${amount} is too less. Please check the range of the plan`
+      );
+      setIsOpen(true);
+      setAmount("");
+      return
+    }
+    if (amount > user?.balance) {
+      setMessage(
+        `Oppps! Looks like your hand nor reach $${amount} to invest`
+      );
+      setIsOpen(true);
+      setAmount("");
+      return
+    }
     try {
-      if (!amount) return toast.error("Amount is not provided");
-      if (amount > el.max) {
-        setMessage(
-          `Oppps! Looks like your amount $${amount} is too much. Please check the range of the plan`
-        );
-        setIsOpen(true);
-        setAmount("");
-      }
-      if (amount < el.min) {
-        setMessage(
-          `Oppps! Looks like your amount $${amount} is too less. Please check the range of the plan`
-        );
-        setIsOpen(true);
-        setAmount("");
-      }
-      if (amount > user?.balance) {
-        setMessage(
-          `Oppps! Looks like your hand nor reach $${amount} to invest`
-        );
-        setIsOpen(true);
-        setAmount("");
-      }
       await axiosRequest.post('/invest', {amount: +amount, planId: el.id})
       setMessage(
       `Congrats, your ${el.name} Investment was made successful.`
       );
       setIsOpen(true);
       setAmount("");
-
     } catch (error) {
-      console.log(error);
+      console.log(error, 'from invest');
     }
   };
   return (

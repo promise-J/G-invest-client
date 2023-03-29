@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { setToken, setUser } from '../redux/userSlice'
 const initialState = {
@@ -11,7 +10,6 @@ const initialState = {
 
 
 const Login = () => {
-  const navigate = useNavigate()
   const [data, setData] = useState(initialState)
   const [loading, setLoading] = useState(false)
   const {email, password} = data
@@ -35,7 +33,8 @@ const Login = () => {
       dispatch(setToken(res.accessToken))
       setLoading(false)
       localStorage.setItem('IToken', res.accessToken)
-      navigate('/dashboard')
+      // navigate('/dashboard')
+      window.location.href = '/dashboard'
     } catch (error) {
       console.log(error, 'from the login error')
       setLoading(false)
